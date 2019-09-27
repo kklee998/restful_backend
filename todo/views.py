@@ -10,7 +10,13 @@ class TodoViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated,]
 
     def get_queryset(self):
-        return self.request.user.todo.all()
+        queryset = self.request.user.todo.all()
+
+        is_done = self.request.query_params.get('done', None)
+        
+        if is_done is not None:
+            queryset = queryset.filter(is_done=is_done)
+        return queryset
 
 
     def perform_create(self, serializer):
