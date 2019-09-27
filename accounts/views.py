@@ -25,10 +25,9 @@ class RegisterView(generics.CreateAPIView):
             'access': str(refresh.access_token),
             }
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `detail` actions.
-    """
+class UserView(generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticated,]
-    queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
