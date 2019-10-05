@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from accounts.serializers import RegisterSerializer, UserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import viewsets
-from django.contrib.auth.models import User
+from django.conf import settings
 
 # Register new user
 class RegisterView(generics.CreateAPIView):
