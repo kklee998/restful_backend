@@ -11,6 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restful_backend.settings')
+from dotenv import load_dotenv
+load_dotenv()
+
+if os.environ.get('PY_ENV') == 'prod':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restful_backend.settings.prod')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'restful_backend.settings.dev')
 
 application = get_wsgi_application()
