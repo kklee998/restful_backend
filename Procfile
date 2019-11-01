@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn myproject.wsgi --log-file -
+web: gunicorn restful_backend.wsgi --log-file -
