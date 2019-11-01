@@ -3,6 +3,14 @@ from restful_backend.settings.base import * #pylint: disable=unused-wildcard-imp
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# DB Variables
+
+DB_NAME = os.environ.get("DB_NAME")
+DB_USER = os.environ.get("DB_USER")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_HOST = os.environ.get("DB_HOST")
+DB_PORT = os.environ.get("DB_PORT")
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
